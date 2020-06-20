@@ -1,0 +1,81 @@
+body{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    height: 950px;
+    width: 100%;
+    background-color: #5a5e74;
+    color: white;
+    float: left;
+}
+.leftCol{
+    padding: 10px;
+    height: 950px;
+    width: 40%;
+    border-right: 2px solid black;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.rightCol{
+
+}
+
+.listHeader{
+    border: 2px solid black;
+}
+.itemList{
+    padding: 10px 0 10px 0;
+    height: 950px;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.result{
+    height: 950px;
+    width: 60%;
+}
+
+.surveyCols button{
+    margin: 10px 0 10px 0;
+    height: 50px;
+    width: 50px;
+    font-size: 2em;
+    background-color: #242431;
+    color: white;
+    border-radius: 10px;
+}
+
+.itemDiv{
+    height: auto;
+    width: 100%;
+    border: 1px solid black;
+    margin: 0 0 5px 0;
+}
+
+.surveyDiv{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    height: auto;
+    width: 100%;
+    border: 1px solid black;
+    margin: 0 0 5px 0;
+}
+
+.surveyCols{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    float: left;
+    flex: 1;
+    height: 100%;
+}
