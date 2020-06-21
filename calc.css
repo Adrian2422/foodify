@@ -2,8 +2,8 @@ body{
     margin: 0;
     padding: 0;
     overflow: hidden;
+    font-family: Lato, sans-serif;
 }
-
 main{
     display: flex;
     flex-direction: column;
@@ -17,16 +17,15 @@ main{
     padding: 10px;
     height: 950px;
     width: 40%;
+    max-width: 400px;
     border-right: 2px solid black;
     text-align: center;
     justify-content: center;
     align-items: center;
 }
-
 .rightCol{
 
 }
-
 .listHeader{
     border: 2px solid black;
 }
@@ -38,44 +37,163 @@ main{
     justify-content: center;
     align-items: center;
 }
-
 .result{
     height: 950px;
     width: 60%;
 }
-
-.surveyCols button{
-    margin: 10px 0 10px 0;
-    height: 50px;
-    width: 50px;
-    font-size: 2em;
-    background-color: #242431;
-    color: white;
-    border-radius: 10px;
-}
-
-.itemDiv{
-    height: auto;
-    width: 100%;
-    border: 1px solid black;
-    margin: 0 0 5px 0;
-}
-
 .surveyDiv{
     display: flex;
     flex-flow: row wrap;
     align-items: center;
     height: auto;
-    width: 100%;
+    width: calc(100% - 10px);
     border: 1px solid black;
+    padding: 0 0 0 10px;
     margin: 0 0 5px 0;
 }
-
-.surveyCols{
+.surveyColLeft{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    float: left;
+    flex: 2;
+    height: 100%;
+}
+.surveyColMid{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    float: left;
+    flex: 2;
+    height: 100%;
+}
+.surveyColRight{
     text-align: center;
     justify-content: center;
     align-items: center;
     float: left;
     flex: 1;
     height: 100%;
+}
+.surveyColLeft select{
+    color: white;
+    background-color: #242431;
+    border: none;
+}
+.surveyColMid input{
+    width: 70%;
+    color: white;
+    background-color: #242431;
+    border: none;
+}
+.surveyColRight button{
+    margin: 10px 0 10px 0;
+    height: 50px;
+    width: 50px;
+    font-size: 2em;
+    background-color: #242431;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.surveyColRight button:after {
+    position: absolute;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.surveyColRight button:hover {
+    background-color: #383847;
+}
+.surveyColRight button:active {
+    background-color: #383847;
+    top: 2px;
+}
+.surveyColRight button:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    line-height: 3;
+}
+.itemDiv{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    height: auto;
+    width: calc(100% - 10px);
+    border: 1px solid black;
+    padding: 0 0 0 10px;
+    margin: 0 0 5px 0;
+}
+.itemColLeft{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    float: left;
+    flex: 2;
+    height: 100%;
+}
+.itemColMid{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    float: left;
+    flex: 2;
+    height: 100%;
+}
+.itemColRight{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    float: left;
+    flex: 1;
+    height: 100%;
+}
+.itemTitle{
+}
+.itemDetails{
+}
+.itemColRight button{
+    margin: 10px 0 10px 0;
+    height: 50px;
+    width: 50px;
+    font-size: 2em;
+    background-color: #242431;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.itemColRight button:after {
+    position: absolute;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.itemColRight button:hover {
+    background-color: #383847;
+}
+.itemColRight button:active {
+    background-color: #383847;
+    top: 2px;
+}
+.itemColRight button:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    line-height: 3;
+}
+input:focus,
+select:focus,
+button:focus{
+    outline: none;
 }
