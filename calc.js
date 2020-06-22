@@ -149,9 +149,7 @@ const sumKcal = (nodes) => {
         const kcal = (o, name) => {
             if(o.name === name){
                 if(o['kcal'] === 0){
-
                 }
-                console.log(`Result: ${o['kcal']}`);
                 return o['kcal'].toString(10);
             }
             let result;
@@ -164,7 +162,6 @@ const sumKcal = (nodes) => {
                     }
                 }
             }
-            console.log(`Result: ${result}`);
             return result;
         }
         sum += obj['amount'] * (kcal(products, `${obj['name']}`))/100;
