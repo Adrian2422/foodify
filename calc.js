@@ -105,7 +105,7 @@ const products = {
     ]
 }
 
-//funkcje globalne
+//funkcje
 const onlyNumInput = (target) => {
     target.value = target.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
 }
@@ -137,9 +137,73 @@ const iterate = (obj, key) => {
     }
 }
 const productList = getNames(products);
+const sumKcal = (nodes) => {
+    const dispKcal = document.querySelector('.dispKcal');
+    if(dispKcal !== null){
+        dispKcal.remove();
+    }
+    // wywołanie:     sumKcal('{"name": "pomidor", "amount": "6"}')
+    let sum = 0;
+    nodes.forEach(json => {
+        const obj = JSON.parse(json);
+        const kcal = (o, name) => {
+            if(o.name === name){
+                return o['kcal'];
+            }
+            let result;
+            let p;
+            for(p in o){
+                if(o.hasOwnProperty(p) && typeof o[p] === 'object'){
+                    result = kcal(o[p], name);
+                    if(result){
+                        return result;
+                    }
+                }
+            }
+            return result;
+        }
+        sum += obj['amount'] * (kcal(products, `${obj['name']}`))/100;
+    })
+    return sum.toPrecision(3);
+}
+const getNodesValues = () => {
+    const divs = document.querySelectorAll('.itemDiv');
+    const tab = [];
+    divs.forEach(node => {
+        tab.push(node.getAttribute('value'));
+    })
+    return tab;
+}
 const removeItem = (btn) => {
     btn.parentElement.parentElement.remove();
 };
+const createResultHtml = () => {
+    if(document.body.contains(document.querySelector('.resetBtn'))){
+        (document.querySelector('.resetBtn')).remove();
+    }
+    resultBtn.remove();
+    console.log(getNodesValues());
+    const kcal_amount = sumKcal(getNodesValues());
+    const dispKcal = document.createElement('div');
+    const kcal = document.createElement('p');
+    //const dispNutrients = document.createElement('div');
+    //const nutruents = document.createElement('ul');
+    //const nutrientsItem = document.createElement('li');
+    const resetBtn = document.createElement('button');
+    resetBtn.classList.add('resetBtn');
+    resetBtn.setAttribute('id', 'resetBtn');
+    dispKcal.classList.add('dispKcal');
+    //dispNutrients.classList.add('dispNutrients');
+    kcal.innerText = "Ilość kcal w zestawie: " + kcal_amount;
+    //nutrientsItem.innerText = "Tłuszcze: ";
+    resetBtn.innerText = "Oblicz jeszcze raz";
+    dispKcal.appendChild(kcal);
+    //nutruents.appendChild(nutrientsItem);
+    //dispNutrients.appendChild(nutruents);
+    resultDiv.appendChild(dispKcal);
+    // resultDiv.appendChild(dispNutrients);
+    resultDiv.appendChild(resetBtn);
+}
 
 //tworzenie ankiety
 const surveyDiv = document.createElement('div');
@@ -182,6 +246,7 @@ class Survey{
 }
 const survey = new Survey();
 
+//listenery
 surveySelect.addEventListener('change', e => {
     let choice = surveySelect.options[surveySelect.selectedIndex].id;
     survey._product = productList[choice];
@@ -234,53 +299,11 @@ resultBtn.addEventListener('click', e => {
     if(!document.body.contains(document.querySelector('.itemDiv'))){
         e.preventDefault();
     } else {
-        resultBtn.remove();
-        const divs = document.querySelectorAll('.itemDiv');
-        const tab = [];
-        divs.forEach(node => {
-            tab.push(node.getAttribute('value'));
-        })
-        console.log(tab);
-        const kcal_amount = sumKcal(tab);
-        const dispKcal = document.createElement('div');
-        const kcal = document.createElement('p');
-        //const dispNutrients = document.createElement('div');
-        //const nutruents = document.createElement('ul');
-        //const nutrientsItem = document.createElement('li');
-        dispKcal.classList.add('dispKcal');
-        //dispNutrients.classList.add('dispNutrients');
-        kcal.innerText = "Ilość kcal w zestawie: " + kcal_amount;
-        //nutrientsItem.innerText = "Tłuszcze: ";
-        dispKcal.appendChild(kcal);
-        //nutruents.appendChild(nutrientsItem);
-        //dispNutrients.appendChild(nutruents);
-        resultDiv.appendChild(dispKcal);
-       // resultDiv.appendChild(dispNutrients);
+        createResultHtml();
     }
 })
-
-const sumKcal = (nodes) => {
-    // wywołanie:     sumKcal('{"name": "pomidor", "amount": "6"}')
-    let sum = 0;
-    nodes.forEach(json => {
-        const obj = JSON.parse(json);
-        const kcal = (o, name) => {
-            if(o.name === name){
-                return o['kcal'];
-            }
-            let result;
-            let p;
-            for(p in o){
-                if(o.hasOwnProperty(p) && typeof o[p] === 'object'){
-                    result = kcal(o[p], name);
-                    if(result){
-                        return result;
-                    }
-                }
-            }
-            return result;
-        }
-        sum += obj['amount'] * (kcal(products, `${obj['name']}`))/100;
-    })
-    return sum.toPrecision(3);
-}
+document.addEventListener('click', e => {
+    if(e.target && e.target.id === 'resetBtn'){
+        createResultHtml();
+    }
+})
