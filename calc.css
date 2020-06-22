@@ -263,10 +263,13 @@ main{
     width: 100%;
     background-color: #242431;
 }
-
-
 input:focus,
 select:focus,
 button:focus{
     outline: none;
+}
+@media only screen and (max-width: 1000px){
+    main{
+        height: 700px;
+    }
 }
