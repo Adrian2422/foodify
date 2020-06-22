@@ -3,7 +3,6 @@ body{
     padding: 0;
     overflow: hidden;
 }
-
 main{
     display: flex;
     flex-direction: column;
@@ -13,7 +12,6 @@ main{
     color: white;
     float: left;
 }
-
 .mainHeader{
     display: flex;
     flex-direction: column;
@@ -39,7 +37,6 @@ main{
     display: flex;
     flex-direction: row;
 }
-
 .calc{
     border-right: 1px solid black;
     display: flex;
@@ -49,7 +46,6 @@ main{
     justify-content: center;
     transition: font-size 1s;
 }
-
 .dish{
     border-left: 1px solid black;
     height: 100%;
@@ -59,7 +55,24 @@ main{
     justify-content: center;
     transition: font-size 1s;
 }
-
 .calc:hover, .dish:hover{
-    font-size: 125%;
+    cursor: pointer;
+    transition: font-size 0.7s;
+}
+.calc div,
+.dish div{
+    transition: transform 0.7s ease-out;
+}
+.calc:hover div,
+.dish:hover div{
+    transform: scale(1.5);
+    transition: transform 0.7s;
+}
+a:link{
+    color: white;
+    text-decoration: none;
+}
+a:visited{
+    color: white;
+    text-decoration: none;
 }

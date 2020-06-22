@@ -1,5 +1,7 @@
 //selectory
 const itemList = document.querySelector('.itemList');
+const resultDiv = document.querySelector('.result');
+const resultBtn = document.querySelector('.showResult');
 
 //flaga ilości itemów
 let itemCount = 0;
@@ -83,17 +85,27 @@ const products = {
             name: "napój gazowany",
             kcal: 42,
         },
+    ],
+    meat: [
+        {
+            id: 14,
+            name: "filet z piersi kurczaka",
+            kcal: 249,
+        },
+        {
+            id: 15,
+            name: "kotlet schabowy",
+            kcal: 242.1,
+        },
+        {
+            id: 16,
+            name: "stek wołowy",
+            kcal: 270.5,
+        },
     ]
 }
 
 //funkcje globalne
-const removeItem = (itemId) => {
-    const element = document.querySelector(`#${itemId}`);
-    element.parentNode.removeChild(element);
-}
-const removeEventHandler = () => {
-    removeItem(document.querySelector('.removeItemBtn').parentElement.parentElement.id)
-}
 const onlyNumInput = (target) => {
     target.value = target.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
 }
@@ -106,7 +118,28 @@ const getNames = (el) => {
     })
     return elements;
 }
+const iterate = (obj, key) => {
+    let result;
+    for (const property in obj) {
+        if (obj.hasOwnProperty(property)) {
+            if (property === key) {
+                return obj[key]; // returns the value
+            }
+            else if (typeof obj[property] === "object") {
+                // in case it is an object
+                result = iterate(obj[property], key);
+
+                if (typeof result !== "undefined") {
+                    return result;
+                }
+            }
+        }
+    }
+}
 const productList = getNames(products);
+const removeItem = (btn) => {
+    btn.parentElement.parentElement.remove();
+};
 
 //tworzenie ankiety
 const surveyDiv = document.createElement('div');
@@ -160,6 +193,9 @@ surveyAccept.addEventListener('click', e => {
     if(survey._product === '' || surveyAmount.value === ''){
          e.preventDefault();
     } else {
+        if(document.body.contains(document.querySelector('.itemDiv'))){
+
+        }
         const itemDiv = document.createElement('div');
         const itemColLeft = document.createElement('div');
         const itemTitle = document.createElement('p');
@@ -167,11 +203,12 @@ surveyAccept.addEventListener('click', e => {
         const itemDetails = document.createElement('div');
         const itemColRight = document.createElement('div');
         const removeItemBtn = document.createElement('button');
-        removeItemBtn.addEventListener('click', removeEventHandler, false);
         itemTitle.innerText = survey._product.charAt(0).toUpperCase() + survey._product.slice(1);
         itemDetails.innerText = `${survey._amount}g`;
         removeItemBtn.innerText = 'x';
         itemDiv.setAttribute('id', `item${itemCount}`);
+        itemDiv.setAttribute('value', `{"name": "${survey._product}", "amount": "${survey._amount}"}`);
+        removeItemBtn.setAttribute('onclick', `removeItem(this)`);
         itemCount++;
         itemColLeft.classList.add('itemColLeft');
         itemColMid.classList.add('itemColMid');
@@ -193,3 +230,56 @@ surveyAccept.addEventListener('click', e => {
 surveyAmount.addEventListener('input', e => {
     onlyNumInput(surveyAmount);
 })
+resultBtn.addEventListener('click', e => {
+    if(!document.body.contains(document.querySelector('.itemDiv'))){
+        e.preventDefault();
+    } else {
+        resultBtn.remove();
+        const divs = document.querySelectorAll('.itemDiv');
+        const tab = [];
+        divs.forEach(node => {
+            tab.push(node.getAttribute('value'));
+        })
+        console.log(tab);
+        const jsons =  0;
+        const kcal_amount = sumKcal('{"name": "pomarańcza", "amount": "5"}');
+        const dispKcal = document.createElement('div');
+        const kcal = document.createElement('p');
+        const dispNutrients = document.createElement('div');
+        const nutruents = document.createElement('ul');
+        const nutrientsItem = document.createElement('li');
+        dispKcal.classList.add('dispKcal');
+        dispNutrients.classList.add('dispNutrients');
+        kcal.innerText = "Ilość kcal w zestawie: " + kcal_amount;
+        nutrientsItem.innerText = "Tłuszcze: ";
+        dispKcal.appendChild(kcal);
+        nutruents.appendChild(nutrientsItem);
+        dispNutrients.appendChild(nutruents);
+        resultDiv.appendChild(dispKcal);
+        resultDiv.appendChild(dispNutrients);
+    }
+})
+
+const sumKcal = (json) => {
+    // wywołanie:     sumKcal('{"name": "pomidor", "amount": "6"}')
+    let sum = 0;
+    const obj = JSON.parse(json);
+    const kcal = (o, name) => {
+        if(o.name === name){
+            return o['kcal'];
+        }
+        let result;
+        let p;
+        for(p in o){
+            if(o.hasOwnProperty(p) && typeof o[p] === 'object'){
+                result = kcal(o[p], name);
+                if(result){
+                    return result;
+                }
+            }
+        }
+        return result;
+    }
+    sum = obj['amount'] * kcal(products, `${obj['name']}`);
+    return sum;
+}
