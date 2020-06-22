@@ -241,45 +241,46 @@ resultBtn.addEventListener('click', e => {
             tab.push(node.getAttribute('value'));
         })
         console.log(tab);
-        const jsons =  0;
-        const kcal_amount = sumKcal('{"name": "pomarańcza", "amount": "5"}');
+        const kcal_amount = sumKcal(tab);
         const dispKcal = document.createElement('div');
         const kcal = document.createElement('p');
-        const dispNutrients = document.createElement('div');
-        const nutruents = document.createElement('ul');
-        const nutrientsItem = document.createElement('li');
+        //const dispNutrients = document.createElement('div');
+        //const nutruents = document.createElement('ul');
+        //const nutrientsItem = document.createElement('li');
         dispKcal.classList.add('dispKcal');
-        dispNutrients.classList.add('dispNutrients');
+        //dispNutrients.classList.add('dispNutrients');
         kcal.innerText = "Ilość kcal w zestawie: " + kcal_amount;
-        nutrientsItem.innerText = "Tłuszcze: ";
+        //nutrientsItem.innerText = "Tłuszcze: ";
         dispKcal.appendChild(kcal);
-        nutruents.appendChild(nutrientsItem);
-        dispNutrients.appendChild(nutruents);
+        //nutruents.appendChild(nutrientsItem);
+        //dispNutrients.appendChild(nutruents);
         resultDiv.appendChild(dispKcal);
-        resultDiv.appendChild(dispNutrients);
+       // resultDiv.appendChild(dispNutrients);
     }
 })
 
-const sumKcal = (json) => {
+const sumKcal = (nodes) => {
     // wywołanie:     sumKcal('{"name": "pomidor", "amount": "6"}')
     let sum = 0;
-    const obj = JSON.parse(json);
-    const kcal = (o, name) => {
-        if(o.name === name){
-            return o['kcal'];
-        }
-        let result;
-        let p;
-        for(p in o){
-            if(o.hasOwnProperty(p) && typeof o[p] === 'object'){
-                result = kcal(o[p], name);
-                if(result){
-                    return result;
+    nodes.forEach(json => {
+        const obj = JSON.parse(json);
+        const kcal = (o, name) => {
+            if(o.name === name){
+                return o['kcal'];
+            }
+            let result;
+            let p;
+            for(p in o){
+                if(o.hasOwnProperty(p) && typeof o[p] === 'object'){
+                    result = kcal(o[p], name);
+                    if(result){
+                        return result;
+                    }
                 }
             }
+            return result;
         }
-        return result;
-    }
-    sum = obj['amount'] * kcal(products, `${obj['name']}`);
-    return sum;
+        sum += obj['amount'] * (kcal(products, `${obj['name']}`))/100;
+    })
+    return sum.toPrecision(3);
 }
