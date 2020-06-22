@@ -208,7 +208,8 @@ main{
     align-items: center;
     justify-content: center;
 }
-.showResult{
+.showResult,
+.resetBtn{
     font-size: 2em;
     background-color: #242431;
     color: white;
@@ -222,7 +223,8 @@ main{
     transition: all 0.3s;
 }
 .itemColRight button:after,
-.showResult:after{
+.showResult:after,
+.resetBtn:after{
     position: absolute;
     -o-transition: all 0.3s;
     -webkit-transition: all 0.3s;
@@ -230,16 +232,19 @@ main{
     transition: all 0.3s;
 }
 .itemColRight button:hover,
-.showResult:hover{
+.showResult:hover,
+.resetBtn:hover{
     background-color: #383847;
 }
 .itemColRight button:active,
-.showResult:active{
+.showResult:active,
+.resetBtn:active{
     background-color: #383847;
     top: 2px;
 }
 .itemColRight button:before,
-.showResult:before{
+.showResult:before,
+.resetBtn:before{
     position: absolute;
     left: 0;
     top: 0;
@@ -258,6 +263,8 @@ main{
     width: 100%;
     background-color: #242431;
 }
+
+
 input:focus,
 select:focus,
 button:focus{

@@ -148,7 +148,11 @@ const sumKcal = (nodes) => {
         const obj = JSON.parse(json);
         const kcal = (o, name) => {
             if(o.name === name){
-                return o['kcal'];
+                if(o['kcal'] === 0){
+
+                }
+                console.log(`Result: ${o['kcal']}`);
+                return o['kcal'].toString(10);
             }
             let result;
             let p;
@@ -160,6 +164,7 @@ const sumKcal = (nodes) => {
                     }
                 }
             }
+            console.log(`Result: ${result}`);
             return result;
         }
         sum += obj['amount'] * (kcal(products, `${obj['name']}`))/100;
@@ -182,7 +187,6 @@ const createResultHtml = () => {
         (document.querySelector('.resetBtn')).remove();
     }
     resultBtn.remove();
-    console.log(getNodesValues());
     const kcal_amount = sumKcal(getNodesValues());
     const dispKcal = document.createElement('div');
     const kcal = document.createElement('p');
