@@ -216,7 +216,7 @@ button:focus{
 }
 .showResult,
 .resetBtn{
-    font-size: 1em;
+    font-size: 2em;
     background-color: #242431;
     color: white;
     border: none;
@@ -262,7 +262,7 @@ button:focus{
     background-color: #242431;
 }
 .dispKcal p{
-    font-size: 2em;
+    font-size: 3em;
 }
 .dispNutrients{
     margin: 0 0 10px 0;
@@ -316,5 +316,11 @@ button:focus{
         font-size: 1em;
         border-radius: 5px;
     }
-
+    .showResult,
+    .resetBtn {
+        font-size: 1em;
+    }
+    .dispKcal p{
+        font-size: 2em;
+    }
 }

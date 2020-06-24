@@ -1,7 +1,10 @@
 //selectory
-const itemList = document.querySelector('.itemList');
+const surveySelect = document.querySelector('.surveyColLeft select');
+const surveyAccept = document.querySelector('.surveyColRight button');
+const surveyAmount = document.querySelector('.surveyColMid input');
 const resultDiv = document.querySelector('.result');
 const resultBtn = document.querySelector('.showResult');
+const itemList = document.querySelector('.itemList');
 
 //flaga ilości itemów
 let itemCount = 0;
@@ -206,37 +209,6 @@ const createResultHtml = () => {
     resultDiv.appendChild(resetBtn);
 }
 
-//tworzenie ankiety
-const surveyDiv = document.createElement('div');
-const surveyColLeft = document.createElement('div');
-const surveySelect = document.createElement('select');
-surveySelect.innerHTML = "<option disabled selected value> --- wybierz produkt --- </option>";
-productList.forEach(item => {
-    const surveyOption = document.createElement('option');
-    surveyOption.innerText = item.charAt(0).toUpperCase() + item.slice(1);
-    surveyOption.setAttribute('value', `${item}`);
-    surveyOption.setAttribute('id', `${productList.indexOf(item)}`);
-    surveySelect.appendChild(surveyOption);
-})
-const surveyColMid = document.createElement('div');
-const surveyAmount = document.createElement('input');
-const surveyColRight = document.createElement('div');
-const surveyAccept = document.createElement('button');
-surveyAmount.setAttribute('maxlength', '4');
-surveyAmount.setAttribute('placeholder', 'podaj ilość w g');
-surveyAccept.innerText = "+";
-surveyDiv.classList.add('surveyDiv');
-surveyColLeft.classList.add('surveyColLeft');
-surveyColMid.classList.add('surveyColMid');
-surveyColRight.classList.add('surveyColRight');
-surveyColLeft.appendChild(surveySelect);
-surveyDiv.appendChild(surveyColLeft);
-surveyColMid.appendChild(surveyAmount);
-surveyDiv.appendChild(surveyColMid);
-surveyColRight.appendChild(surveyAccept);
-surveyDiv.appendChild(surveyColRight);
-itemList.appendChild(surveyDiv);
-
 //klasa dla kolejnych itemów z listy
 //i jej instancja
 class Survey{
@@ -251,9 +223,6 @@ const survey = new Survey();
 surveySelect.addEventListener('change', e => {
     let choice = surveySelect.options[surveySelect.selectedIndex].id;
     survey._product = productList[choice];
-})
-surveyAmount.addEventListener('input', e => {
-    survey._amount = Number(surveyAmount.value);
 })
 surveyAccept.addEventListener('click', e => {
     if(survey._product === '' || surveyAmount.value === ''){
@@ -295,6 +264,7 @@ surveyAccept.addEventListener('click', e => {
 })
 surveyAmount.addEventListener('input', e => {
     onlyNumInput(surveyAmount);
+    survey._amount = Number(surveyAmount.value);
 })
 resultBtn.addEventListener('click', e => {
     if(!document.body.contains(document.querySelector('.itemDiv'))){
@@ -307,4 +277,14 @@ document.addEventListener('click', e => {
     if(e.target && e.target.id === 'resetBtn'){
         createResultHtml();
     }
+})
+window.addEventListener('load', e => {
+    //tworzenie opcji ankiet
+    productList.forEach(item => {
+        const surveyOption = document.createElement('option');
+        surveyOption.innerText = item.charAt(0).toUpperCase() + item.slice(1);
+        surveyOption.setAttribute('value', `${item}`);
+        surveyOption.setAttribute('id', `${productList.indexOf(item)}`);
+        surveySelect.appendChild(surveyOption);
+    })
 })

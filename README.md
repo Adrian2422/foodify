@@ -11,7 +11,7 @@
 
 <p>Znane bugi:</p>
 <ul>
-<li>Wylewające się elementy listy (brak ograniczeń co do ich ilości)</li>
+<li>Wylewające się elementy listy (brak ograniczeń co do ich ilości) (✔ rozwiązane)</li>
 </ul>
 
 <p>To-do:</p>
