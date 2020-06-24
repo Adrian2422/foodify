@@ -166,7 +166,7 @@ const sumKcal = (nodes) => {
         }
         sum += obj['amount'] * (kcal(products, `${obj['name']}`))/100;
     })
-    return sum.toPrecision(3);
+    return sum.toFixed(2);
 }
 const getNodesValues = () => {
     const divs = document.querySelectorAll('.itemDiv');
@@ -222,7 +222,7 @@ const surveyColMid = document.createElement('div');
 const surveyAmount = document.createElement('input');
 const surveyColRight = document.createElement('div');
 const surveyAccept = document.createElement('button');
-surveyAmount.setAttribute('maxlength', '6');
+surveyAmount.setAttribute('maxlength', '4');
 surveyAmount.setAttribute('placeholder', 'podaj ilość w g');
 surveyAccept.innerText = "+";
 surveyDiv.classList.add('surveyDiv');
