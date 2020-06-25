@@ -365,12 +365,30 @@ button:focus{
 .itemList::-webkit-scrollbar-thumb {
     background-color: white;
 }
-@media only screen and (min-device-width: 375px)
-and (max-device-width: 812px)
-and (-webkit-min-device-pixel-ratio: 3)
-and (orientation: portrait) {
+@media only screen
+and (min-width: 375px)
+and (max-width: 813px)
+and (orientation: portrait){
+    .listHeader h2{
+        font-size: 1em;
+    }
     .leftCol{
         min-width: 168px;
+    }
+    .itemDiv{
+        font-size: 0.8em;
+    }
+    .personalSurvey{
+        font-size: 0.8em;
+    }
+    .surveyColLeft{
+        padding: 5px 0 0 0;
+    }
+    .surveyColMid{
+        padding: 5px 0 0 0;
+    }
+    .surveyColRight{
+        padding: 5px 0 5px 0;
     }
     .surveyColLeft select{
         margin: 5px;
@@ -384,10 +402,6 @@ and (orientation: portrait) {
         color: white;
         background-color: #242431;
         border: none;
-    }
-    .personalBtn{
-        margin: 10px 0 0 0;
-        font-size: 1em;
     }
     .surveyColRight button{
         margin: 5px;
@@ -403,11 +417,15 @@ and (orientation: portrait) {
         font-size: 1em;
         border-radius: 5px;
     }
+    .personalBtn{
+        font-size: 1em;
+    }
     .showResult,
     .resetBtn {
         font-size: 1em;
     }
-    .dispKcal p{
-        font-size: 2em;
+    .productsSetKcal,
+    .personalKcal{
+        font-size: 1.5em;
     }
 }

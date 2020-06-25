@@ -192,7 +192,9 @@ const fancyDisplay = (num, selector, str) => {
     let actual = 0;
 
     const time = setInterval(() =>{
-        if(num > 1000){
+        if(num > 5000) {
+            actual += 100;
+        } else if(num > 1000){
             actual += 50;
         } else if (num > 100){
             actual += 10;
