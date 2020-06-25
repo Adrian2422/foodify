@@ -1,3 +1,4 @@
+/* Ogólne */
 body{
     display: flex;
     margin: 0;
@@ -44,6 +45,7 @@ button:focus{
     height: calc(100% - 20px);
     width: calc(100% - 20px);
 }
+/*  Lewa strona - tytuł, lista produktów*/
 .listHeader{
     width: calc(100% - 4px);
     border: 2px solid black;
@@ -68,6 +70,7 @@ button:focus{
     width: 100%;
     text-align: center;
 }
+/* Wybór produktu*/
 .surveyDiv{
     display: flex;
     flex-flow: wrap;
@@ -105,6 +108,7 @@ button:focus{
     height: auto;
 }
 .surveyColLeft select{
+    margin-right: 5px;
     color: white;
     width: 150px;
     background-color: #242431;
@@ -112,6 +116,7 @@ button:focus{
 }
 .surveyColMid input{
     width: 100px;
+    padding-left: 10px;
     color: white;
     background-color: #242431;
     border: none;
@@ -151,6 +156,7 @@ button:focus{
     top: 0;
     line-height: 3;
 }
+/* Lista produktów*/
 .itemDiv{
     display: flex;
     flex-flow: row wrap;
@@ -196,6 +202,7 @@ button:focus{
     -moz-transition: all 0.3s;
     transition: all 0.3s;
 }
+/* Ankieta osobista - obliczanie zapotrzebowania na kcal*/
 .personalSurvey{
     display: flex;
     flex-wrap: wrap;
@@ -233,6 +240,7 @@ button:focus{
 .personalColMid > label:not(:first-of-type) {
     margin: 5px 0 0 0;
 }
+/* Custom radio */
 .personalColLeft input[type="radio"] {
     -webkit-appearance: none;
     appearance: none;
@@ -263,11 +271,13 @@ button:focus{
 }
 .personalColMid input,
 .personalColMid select{
-    width: 168px;
+    padding-left: 10px;
+    width: 163px;
     background-color: #242431;
     border: none;
     color: white;
 }
+.surveyColMid input::-webkit-inner-spin-button,
 .personalColMid input::-webkit-inner-spin-button{
     -webkit-appearance: none;
 }
@@ -280,6 +290,7 @@ button:focus{
 .personalKcal{
     font-size: 3em;
 }
+/* Pole na wyniki */
 .result{
     height: 100%;
     width: 100%;
@@ -302,6 +313,19 @@ button:focus{
     -moz-transition: all 0.3s;
     transition: all 0.3s;
 }
+.dispKcal{
+    margin: 0 0 10px 0;
+    width: 100%;
+    background-color: #242431;
+}
+.productsSetKcal,
+.personalKcal{
+    font-size: 1.5em;
+}
+.verdict{
+    font-size: 1em !important;
+}
+/* Animacje przycisków */
 .personalBtn:after,
 .itemColRight button:after,
 .showResult:after,
@@ -334,23 +358,6 @@ button:focus{
     top: 0;
     line-height: 3;
 }
-.dispKcal{
-    margin: 0 0 10px 0;
-    width: 100%;
-    background-color: #242431;
-}
-.productsSetKcal,
-.personalKcal{
-    font-size: 1.5em;
-}
-.verdict{
-    font-size: 1em !important;
-}
-.dispNutrients{
-    margin: 0 0 10px 0;
-    width: 100%;
-    background-color: #242431;
-}
 /* scrollbar dla Firefox */
 .itemList{
     scrollbar-width: thin;
@@ -366,6 +373,7 @@ button:focus{
 .itemList::-webkit-scrollbar-thumb {
     background-color: white;
 }
+/* media queries dla mobile*/
 @media only screen
     and (min-width: 375px)
     and (max-width: 813px)
@@ -393,7 +401,7 @@ button:focus{
     }
     .surveyColLeft select{
         margin: 5px;
-        max-width: 100px;
+        max-width: 115px;
         color: white;
         background-color: #242431;
         border: none;
