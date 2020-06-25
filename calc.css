@@ -7,7 +7,7 @@ main{
     display: flex;
     flex-direction: column;
     height: 100vh;
-    width: 100%;
+    width: 100vw;
     background-color: #4D4F77;
     color: white;
     float: left;
@@ -62,7 +62,7 @@ button:focus{
     display: flex;
     flex-flow: column;
     height: 950px;
-    width: 60%;
+    width: 100%;
     text-align: center;
 }
 .surveyDiv{
@@ -219,6 +219,9 @@ button:focus{
     align-items: center;
     height: auto;
 }
+.personalColMid > label:not(:first-of-type) {
+    margin: 5px 0 0 0;
+}
 .personalColLeft input[type="radio"] {
     -webkit-appearance: none;
     appearance: none;
@@ -249,7 +252,13 @@ button:focus{
 }
 .personalColMid input,
 .personalColMid select{
-    width: 160px;
+    width: 168px;
+    background-color: #242431;
+    border: none;
+    color: white;
+}
+.personalColMid input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
 }
 .personalDiv{
     width: 100%;
