@@ -346,7 +346,10 @@ button:focus{
 .itemList::-webkit-scrollbar-thumb {
     background-color: white;
 }
-@media only screen and (max-width: 600px){
+@media only screen and (min-device-width: 375px)
+and (max-device-width: 812px)
+and (-webkit-min-device-pixel-ratio: 3)
+and (orientation: portrait) {
     .leftCol{
         min-width: 168px;
     }
@@ -359,7 +362,7 @@ button:focus{
     }
     .surveyColMid input{
         margin: 5px;
-        width: 88px;
+        width: 1px;
         color: white;
         background-color: #242431;
         border: none;
