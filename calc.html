@@ -32,6 +32,33 @@
                 </div>
             </div>
             <div class="rightCol">
+                <div class="personalSurvey">
+                    <div class="personalColLeft">
+                        <input type="radio" id="man" class="gender" value="man" name="gender" checked>
+                        <label for="man">Mężczyzna</label>
+                        <br/>
+                        <input type="radio" id="woman" class="gender" value="woman" name="gender">
+                        <label for="woman">Kobieta</label>
+                    </div>
+                    <div class="personalColMid">
+                        <label for="age">Wiek</label>
+                        <input type="number" id="age">
+                        <label for="height">Wzrost (cm)</label>
+                        <input type="number" id="height">
+                        <label for="weight">Waga (kg)</label>
+                        <input type="number" id="weight">
+                        <label for="activity">Aktywność</label>
+                        <select id="activity">
+                            <option name="activity" value="0" disabled selected>Wybierz rodzaj aktywności</option>
+                            <option name="activity" value="1">Mała aktywność (siedzący tryb życia, znikoma ilość ćwiczeń)</option>
+                            <option name="activity" value="2">Średnia aktywność (spacery, bieganie, ćwiczenia 3-5 razy w ciągu tygodnia)</option>
+                            <option name="activity" value="3">Wysoka aktywność (ciężkie treningi, codzienne ćwiczenia)</option>
+                        </select>
+                    </div>
+                    <div class="personalColRight">
+                        <button type="button" class="personalBtn">Oblicz</button>
+                    </div>
+                </div>
                 <div class="result">
                     <button class="showResult">Oblicz kalorie</button>
                 </div>

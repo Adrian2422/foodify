@@ -207,6 +207,81 @@ button:focus{
     -moz-transition: all 0.3s;
     transition: all 0.3s;
 }
+.personalSurvey{
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    width: 100%;
+    border: 2px solid black;
+    padding: 10px 0 10px 0;
+}
+.personalColLeft{
+    padding: 0 10px 0 10px;
+    display: flex;
+    flex: 1;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+.personalColMid{
+    padding: 0 10px 0 10px;
+    display: flex;
+    flex: 1;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+.personalColRight{
+    padding: 0 10px 0 10px;
+    display: flex;
+    flex: 1;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+.personalColLeft input[type="radio"] {
+    -webkit-appearance: none;
+    appearance: none;
+}
+.personalColLeft input[type="radio"]{
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    border: 2px solid gray;
+    outline: none;
+}
+.personalColLeft input[type="radio"]::before {
+    display: block;
+    content: " ";
+    width: 10px;
+    height: 10px;
+    border-radius: 6px;
+    background-color: white;
+    font-size: 1.2em;
+    transform: translate(3px, 3px) scale(0);
+    transform-origin: center;
+    transition: all 0.3s ease-in;
+}
+.personalColLeft input[type="radio"]:checked::before {
+    transform: translate(3px, 3px) scale(1);
+    transition: all 0.3s cubic-bezier(0.25, 0.25, 0.56, 2);
+}
+.personalColMid input,
+.personalColMid select{
+    width: 160px;
+}
+.personalDiv{
+    background-color: #242431;
+    color: white;
+    margin: 10px 0 10px 0;
+}
+.personalKcal{
+    font-size: 3em;
+}
 .result{
     height: 100%;
     width: 100%;
@@ -214,6 +289,7 @@ button:focus{
     align-items: center;
     justify-content: center;
 }
+.personalBtn,
 .showResult,
 .resetBtn{
     font-size: 2em;
@@ -228,6 +304,7 @@ button:focus{
     -moz-transition: all 0.3s;
     transition: all 0.3s;
 }
+.personalBtn:after,
 .itemColRight button:after,
 .showResult:after,
 .resetBtn:after{
@@ -237,17 +314,20 @@ button:focus{
     -moz-transition: all 0.3s;
     transition: all 0.3s;
 }
+.personalBtn:hover,
 .itemColRight button:hover,
 .showResult:hover,
 .resetBtn:hover{
     background-color: #383847;
 }
+.personalBtn:active,
 .itemColRight button:active,
 .showResult:active,
 .resetBtn:active{
     background-color: #383847;
     top: 2px;
 }
+.personalBtn:before,
 .itemColRight button:before,
 .showResult:before,
 .resetBtn:before{
@@ -261,8 +341,12 @@ button:focus{
     width: 100%;
     background-color: #242431;
 }
-.dispKcal p{
-    font-size: 3em;
+.productsSetKcal,
+.personalKcal{
+    font-size: 2em;
+}
+.verdict{
+    font-size: 1em;
 }
 .dispNutrients{
     margin: 0 0 10px 0;
@@ -301,6 +385,10 @@ button:focus{
         color: white;
         background-color: #242431;
         border: none;
+    }
+    .personalBtn{
+        margin: 10px 0 0 0;
+        font-size: 1em;
     }
     .surveyColRight button{
         margin: 5px;
