@@ -36,8 +36,6 @@ button:focus{
 }
 .rightCol {
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-flow: column;
     padding: 10px;
     height: calc(100% - 20px);
@@ -66,8 +64,6 @@ button:focus{
     height: 950px;
     width: 60%;
     text-align: center;
-    justify-content: center;
-    align-items: center;
 }
 .surveyDiv{
     display: flex;
@@ -80,25 +76,16 @@ button:focus{
     margin: 0 0 5px 0;
 }
 .surveyColLeft{
-    text-align: center;
-    justify-content: center;
-    align-items: center;
     float: left;
     flex: 2;
     height: auto;
 }
 .surveyColMid{
-    text-align: center;
-    justify-content: center;
-    align-items: center;
     float: left;
     flex: 2;
     height: auto;
 }
 .surveyColRight{
-    text-align: center;
-    justify-content: center;
-    align-items: center;
     float: left;
     flex: 1;
     height: auto;
@@ -164,25 +151,16 @@ button:focus{
     margin: 0 0 5px 0;
 }
 .itemColLeft{
-    text-align: center;
-    justify-content: center;
-    align-items: center;
     float: left;
     flex: 2;
     height: 100%;
 }
 .itemColMid{
-    text-align: center;
-    justify-content: center;
-    align-items: center;
     float: left;
     flex: 2;
     height: 100%;
 }
 .itemColRight{
-    text-align: center;
-    justify-content: center;
-    align-items: center;
     float: left;
     flex: 1;
     height: 100%;
@@ -213,10 +191,9 @@ button:focus{
     height: auto;
     width: 100%;
     border: 2px solid black;
-    padding: 10px 0 10px 0;
 }
 .personalColLeft{
-    padding: 0 10px 0 10px;
+    padding: 10px;
     display: flex;
     flex: 1;
     flex-flow: column wrap;
@@ -225,7 +202,7 @@ button:focus{
     height: auto;
 }
 .personalColMid{
-    padding: 0 10px 0 10px;
+    padding: 10px;
     display: flex;
     flex: 1;
     flex-flow: column wrap;
@@ -234,7 +211,7 @@ button:focus{
     height: auto;
 }
 .personalColRight{
-    padding: 0 10px 0 10px;
+    padding: 10px;
     display: flex;
     flex: 1;
     flex-flow: column wrap;
@@ -275,6 +252,7 @@ button:focus{
     width: 160px;
 }
 .personalDiv{
+    width: 100%;
     background-color: #242431;
     color: white;
     margin: 10px 0 10px 0;
@@ -343,10 +321,10 @@ button:focus{
 }
 .productsSetKcal,
 .personalKcal{
-    font-size: 2em;
+    font-size: 1.5em;
 }
 .verdict{
-    font-size: 1em;
+    font-size: 1em !important;
 }
 .dispNutrients{
     margin: 0 0 10px 0;

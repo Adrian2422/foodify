@@ -240,6 +240,9 @@ const createResultHtml = () => {
 }
 const createVerdictHtml = () => {
     if(document.body.contains(document.querySelector('.dispKcal'))) {
+        if(document.body.contains(document.querySelector('.verdict'))){
+            document.querySelector('.verdict').remove();
+        }
         const dispKcal = document.querySelector('.dispKcal');
         const verdict = document.createElement('p');
         verdict.classList.add('verdict');
