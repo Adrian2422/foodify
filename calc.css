@@ -604,6 +604,9 @@ button:focus{
     .leftCol{
         min-width: 158px;
     }
+    .rightCol{
+        width: calc(100% - 40px);
+    }
     .itemDiv{
         font-size: 0.8em;
     }
