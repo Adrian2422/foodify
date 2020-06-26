@@ -2,9 +2,12 @@
 body{
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    font-family: Lato, sans-serif;
 }
-main{
+.main{
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -77,6 +80,74 @@ a:link{
 a:visited{
     color: white;
     text-decoration: none;
+}
+/* Wiadomość powitalna */
+.maskDiv{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.5);
+}
+.welcomeDiv{
+    width: 500px;
+    height: 220px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: #242431;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.welcomeTitle{
+    color: white;
+    font-size: 2em;
+}
+.welcomeMessage{
+    color: white;
+    font-size: 1em;
+}
+.closeBtn{
+    height: 50px;
+    width: 100px;
+    font-size: 1em;
+    background-color: #4D4F77;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    -o-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.closeBtn:after {
+    position: absolute;
+    -o-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.closeBtn:hover {
+    background-color: #383847;
+}
+.closeBtn:active {
+    background-color: #383847;
+    top: 2px;
+}
+.closeBtn:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    line-height: 3;
+}
+.closeBtn:focus{
+    outline: none;
 }
 /* media queries dla mobile*/
 @media only screen

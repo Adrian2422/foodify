@@ -21,7 +21,7 @@
                     </div>
                     <div class="surveyColMid">
                         <label>
-                            <input type="number" maxlength="4" placeholder="podaj ilość w g">
+                            <input type="number" maxlength="4" oninput="this.value = this.value.slice(0, this.maxLength)" placeholder="podaj ilość w g">
                         </label>
                     </div>
                     <div class="surveyColRight">
@@ -42,11 +42,11 @@
                     </div>
                     <div class="personalColMid">
                         <label for="age">Wiek</label>
-                        <input type="number" id="age">
+                        <input type="number" maxlength="2" oninput="this.value = this.value.slice(0, this.maxLength)" id="age">
                         <label for="height">Wzrost (cm)</label>
-                        <input type="number" id="height">
+                        <input type="number" maxlength="3" oninput="this.value = this.value.slice(0, this.maxLength)" id="height">
                         <label for="weight">Waga (kg)</label>
-                        <input type="number" id="weight">
+                        <input type="number" maxlength="3" oninput="this.value = this.value.slice(0, this.maxLength)" id="weight">
                         <label for="activity">Aktywność</label>
                         <select id="activity">
                             <option name="activity" value="0" disabled selected>Wybierz rodzaj aktywności</option>

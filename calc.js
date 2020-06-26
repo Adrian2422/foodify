@@ -1,4 +1,5 @@
 //selectory
+const body = document.querySelector('body');
 const surveySelect = document.querySelector('.surveyColLeft select');
 const surveyAccept = document.querySelector('.surveyColRight button');
 const surveyAmount = document.querySelector('.surveyColMid input');
@@ -110,8 +111,100 @@ const products = {
 }
 
 //funkcje
-const onlyNumInput = (target) => {
-    target.value = target.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
+const tutorialStart = () => {
+    const maskDiv = document.createElement('div');
+    const startDiv = document.createElement('div');
+    const startTitle = document.createElement('p');
+    const startMessage = document.createElement('p');
+    const closeBtn = document.createElement('button');
+    maskDiv.classList.add('maskDiv');
+    startDiv.classList.add('startDiv');
+    startTitle.classList.add('startTitle');
+    startMessage.classList.add('startMessage');
+    closeBtn.classList.add('closeBtn');
+    startTitle.innerText = "Obliczanie kalorii";
+    startMessage.innerText = "Tutaj możesz obliczyć kalorie wybranego zestawu produktów oraz obliczyć swoje dzienne zapotrzebowanie na kalorie.";
+    closeBtn.innerText = "Do dzieła!";
+    startDiv.appendChild(startTitle);
+    startDiv.appendChild(startMessage);
+    startDiv.appendChild(closeBtn);
+    maskDiv.appendChild(startDiv);
+    body.appendChild(maskDiv);
+    closeBtn.addEventListener('click', e => {
+        maskDiv.remove();
+        tutorialLeft();
+    })
+}
+const tutorialLeft = () => {
+    const maskDivLeft = document.createElement('div');
+    const tutorialDivLeft = document.createElement('div');
+    const tutoriaTitleLeft = document.createElement('p');
+    const tutorialMessageLeft = document.createElement('p');
+    const closeBtnLeft = document.createElement('button');
+    maskDivLeft.classList.add('maskDivLeft');
+    tutorialDivLeft.classList.add('tutorialDivLeft');
+    tutoriaTitleLeft.classList.add('tutoriaTitleLeft');
+    tutorialMessageLeft.classList.add('tutorialMessageLeft');
+    closeBtnLeft.classList.add('closeBtnLeft');
+    tutoriaTitleLeft.innerText = "Lista produktów";
+    tutorialMessageLeft.innerText = 'Tutaj możesz wybrać z listy rozwijanej produkty, wpisać wagę w gramach i dodać je do list, by następnie przyciskiem "Oblicz kalorie" obliczyć sumę kalorii.';
+    closeBtnLeft.innerText = "Zrozumiałem!";
+    tutorialDivLeft.appendChild(tutoriaTitleLeft);
+    tutorialDivLeft.appendChild(tutorialMessageLeft);
+    tutorialDivLeft.appendChild(closeBtnLeft);
+    maskDivLeft.appendChild(tutorialDivLeft);
+    body.appendChild(maskDivLeft);
+    closeBtnLeft.addEventListener('click', e => {
+        maskDivLeft.remove();
+        tutorialUpRight();
+    })
+}
+const tutorialUpRight = () => {
+    const maskDivUpRight = document.createElement('div');
+    const tutorialDivUpRight = document.createElement('div');
+    const tutoriaTitleUpRight = document.createElement('p');
+    const tutorialMessageUpRight = document.createElement('p');
+    const closeBtnUpRight = document.createElement('button');
+    maskDivUpRight.classList.add('maskDivUpRight');
+    tutorialDivUpRight.classList.add('tutorialDivUpRight');
+    tutoriaTitleUpRight.classList.add('tutoriaTitleUpRight');
+    tutorialMessageUpRight.classList.add('tutorialMessageUpRight');
+    closeBtnUpRight.classList.add('closeBtnUpRight');
+    tutoriaTitleUpRight.innerText = "Osobista ankieta";
+    tutorialMessageUpRight.innerText = 'Tutaj możesz podać swoje parametry, by na ich podsawie obliczyć spersonalizowane zapotrzebowanie na kalorie. Uzupełnij, kliknij "Oblicz", gotowe!';
+    closeBtnUpRight.innerText = "Brzmi świetnie!";
+    tutorialDivUpRight.appendChild(tutoriaTitleUpRight);
+    tutorialDivUpRight.appendChild(tutorialMessageUpRight);
+    tutorialDivUpRight.appendChild(closeBtnUpRight);
+    maskDivUpRight.appendChild(tutorialDivUpRight);
+    body.appendChild(maskDivUpRight);
+    closeBtnUpRight.addEventListener('click', e => {
+        maskDivUpRight.remove();
+        tutorialDownRight();
+    })
+}
+const tutorialDownRight = () => {
+    const maskDivDownRight = document.createElement('div');
+    const tutorialDivDownRight = document.createElement('div');
+    const tutoriaTitleDownRight = document.createElement('p');
+    const tutorialMessageDownRight = document.createElement('p');
+    const closeBtnDownRight = document.createElement('button');
+    maskDivDownRight.classList.add('maskDivDownRight');
+    tutorialDivDownRight.classList.add('tutorialDivDownRight');
+    tutoriaTitleDownRight.classList.add('tutoriaTitleDownRight');
+    tutorialMessageDownRight.classList.add('tutorialMessageDownRight');
+    closeBtnDownRight.classList.add('closeBtnDownRight');
+    tutoriaTitleDownRight.innerText = "Pole wyniku";
+    tutorialMessageDownRight.innerText = 'Tutaj będą się wyświetlać wszystkie wyniki obliczeń. W razie potrzeby ponownego obliczenia, wystarczy zmienić dane i ponownie kliknąć odpowiedni przycisk.';
+    closeBtnDownRight.innerText = "Dzięki!";
+    tutorialDivDownRight.appendChild(tutoriaTitleDownRight);
+    tutorialDivDownRight.appendChild(tutorialMessageDownRight);
+    tutorialDivDownRight.appendChild(closeBtnDownRight);
+    maskDivDownRight.appendChild(tutorialDivDownRight);
+    body.appendChild(maskDivDownRight);
+    closeBtnDownRight.addEventListener('click', e => {
+        maskDivDownRight.remove();
+    })
 }
 const getNames = (el) => {
     const elements = [];
@@ -121,6 +214,15 @@ const getNames = (el) => {
         })
     })
     return elements;
+}
+const productList = getNames(products);
+const getNodesValues = () => {
+    const divs = document.querySelectorAll('.itemDiv');
+    const tab = [];
+    divs.forEach(node => {
+        tab.push(node.getAttribute('value'));
+    })
+    return tab;
 }
 const iterate = (obj, key) => {
     let result;
@@ -140,7 +242,6 @@ const iterate = (obj, key) => {
         }
     }
 }
-const productList = getNames(products);
 const sumKcal = (nodes) => {
     const dispKcal = document.querySelector('.dispKcal');
     if(dispKcal !== null){
@@ -210,17 +311,6 @@ const fancyDisplay = (num, selector, str) => {
         }
     }, 10);
 }
-const getNodesValues = () => {
-    const divs = document.querySelectorAll('.itemDiv');
-    const tab = [];
-    divs.forEach(node => {
-        tab.push(node.getAttribute('value'));
-    })
-    return tab;
-}
-const removeItem = (btn) => {
-    btn.parentElement.parentElement.remove();
-};
 const createResultHtml = () => {
     if(document.body.contains(document.querySelector('.resetBtn'))){
         (document.querySelector('.resetBtn')).remove();
@@ -260,6 +350,9 @@ const createVerdictHtml = () => {
         }
     }
 }
+const removeItem = (btn) => {
+    btn.parentElement.parentElement.remove();
+};
 
 //klasa dla kolejnych itemów z listy
 //i jej instancja
@@ -315,8 +408,7 @@ surveyAccept.addEventListener('click', e => {
     }
 })
 surveyAmount.addEventListener('input', e => {
-    onlyNumInput(surveyAmount);
-    survey._amount = Number(surveyAmount.value);
+    survey._amount = surveyAmount.value;
 })
 personalBtn.addEventListener('click', e =>{
     if(document.querySelector('#age').value === ""){
@@ -353,8 +445,8 @@ document.addEventListener('click', e => {
         createResultHtml();
     }
 })
-window.addEventListener('load', e => {
-    //tworzenie opcji ankiet
+window.onload = () => {
+    tutorialStart();
     productList.forEach(item => {
         const surveyOption = document.createElement('option');
         surveyOption.innerText = item.charAt(0).toUpperCase() + item.slice(1);
@@ -362,4 +454,4 @@ window.addEventListener('load', e => {
         surveyOption.setAttribute('id', `${productList.indexOf(item)}`);
         surveySelect.appendChild(surveyOption);
     })
-})
+}
