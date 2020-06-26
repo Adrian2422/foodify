@@ -83,6 +83,7 @@ a:visited{
 }
 /* Wiadomość powitalna */
 .maskDiv{
+    display: flex;
     position: absolute;
     width: 100vw;
     height: 100vh;
@@ -90,31 +91,35 @@ a:visited{
     background: rgba(0, 0, 0, 0.5);
 }
 .welcomeDiv{
-    width: 500px;
-    height: 220px;
+    display: flex;
+    flex-direction: column;
+    height: 20vh;
+    width: 50vw;
     text-align: center;
     justify-content: center;
     align-items: center;
     background-color: #242431;
-    position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     margin: auto;
+    padding: 0 10px 0 10px;
 }
 .welcomeTitle{
+    margin: 10px 0 10px 0;
     color: white;
     font-size: 2em;
 }
 .welcomeMessage{
+    margin: 0 0 5px 0;
     color: white;
     font-size: 1em;
 }
 .closeBtn{
     height: 50px;
-    width: 100px;
     font-size: 1em;
+    margin: 0 0 10px 0;
     background-color: #4D4F77;
     color: white;
     border-radius: 10px;
@@ -151,9 +156,13 @@ a:visited{
 }
 /* media queries dla mobile*/
 @media only screen
-and (min-width: 375px)
+and (min-width: 300px)
 and (max-width: 813px)
 and (orientation: portrait){
+    .welcomeDiv{
+        height: 40%;
+        width: 50%;
+    }
     .mainHeader h1{
         font-size: 3em;
     }

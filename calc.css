@@ -546,9 +546,70 @@ button:focus{
 }
 /* media queries dla mobile*/
 @media only screen
-    and (min-width: 375px)
+    and (min-width: 300px)
     and (max-width: 813px)
     and (orientation: portrait){
+    /* Tutorial */
+    .startDiv{
+        height: 30vh;
+        width: 50vw;
+    }
+    .startTitle,
+    .tutoriaTitleLeft,
+    .tutoriaTitleUpRight,
+    .tutoriaTitleDownRight{
+        margin: 10px 0 10px 0;
+        color: white;
+        font-size: 1.5em;
+    }
+    .startMessage,
+    .tutorialMessageLeft,
+    .tutorialMessageUpRight,
+    .tutorialMessageDownRight{
+        margin: 0 0 5px 0;
+        color: white;
+        font-size: 0.8em;
+    }
+    /* Tutorial lewa strona*/
+    .maskDivLeft{
+        display: flex;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+        background: rgba(0, 0, 0, 0.5);
+    }
+    .tutorialDivLeft{
+        height: 30vh;
+        width: 50vw;
+    }
+    /* Tutorial prawa górna strona */
+    .maskDivUpRight{
+        display: flex;
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        z-index: 1000;
+        background: rgba(0, 0, 0, 0.5);
+    }
+    .tutorialDivUpRight{
+        height: 30vh;
+        width: 50vw;
+    }
+    /* Tutorial prawa dolna strona */
+    .maskDivDownRight{
+        display: flex;
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        z-index: 1000;
+        background: rgba(0, 0, 0, 0.5);
+    }
+    .tutorialDivDownRight{
+        height: 30vh;
+        width: 50vw;
+    }
+
     .listHeader h2{
         font-size: 1em;
     }
