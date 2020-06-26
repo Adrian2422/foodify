@@ -5,12 +5,12 @@ body{
     padding: 0;
     width: 100%;
     height: 100%;
-    overflow-x: hidden;
+    overflow: hidden;
     font-family: Lato, sans-serif;
 }
 main{
     display: flex;
-    min-height: 100%;
+    height: 100%;
     width: 100%;
     background-color: #4D4F77;
     color: white;
@@ -30,8 +30,8 @@ button:focus{
     display: flex;
     flex-flow: column;
     padding: 10px;
-    height: calc(100vh - 20px);
-    width: calc(40vw - 20px);
+    height: 100vh;
+    width: 40%;
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -42,7 +42,327 @@ button:focus{
     padding: 10px;
     border-left: 2px solid black;
     height: calc(100vh - 20px);
-    width: calc(100vw - 20px);
+    width: 60%;
+}
+/*  Lewa strona - tytuł, lista produktów*/
+.listHeader{
+    width: calc(100% - 4px);
+    border: 2px solid black;
+    margin: 0 0 10px 0;
+}
+.listHeader h2{
+    padding: 0 10px 0 10px;
+}
+.itemList{
+    height: calc(100% - 20px);
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+}
+.result{
+    display: flex;
+    padding: 20px 0 20px 0;
+    flex-direction: column;
+    height: auto;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+/* Wybór produktu*/
+.surveyDiv{
+    display: flex;
+    flex-flow: wrap;
+    align-items: center;
+    height: auto;
+    width: calc(100% - 22px);
+    border: 1px solid black;
+    padding: 0 10px 0 10px;
+}
+.surveyColLeft{
+    float: left;
+    flex: 2;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: auto;
+}
+.surveyColMid{
+    display: flex;
+    flex: 2;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+.surveyColRight{
+    padding: 10px 0 10px 0;
+    display: flex;
+    flex: 1;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+.surveyColLeft select{
+    margin: 10px;
+    color: white;
+    width: 150px;
+    background-color: #242431;
+    border: none;
+}
+.surveyColMid input{
+    padding-left: 5px;
+    width: 100px;
+    color: white;
+    background-color: #242431;
+    border: none;
+}
+.surveyColRight button{
+    height: 50px;
+    width: 50px;
+    font-size: 2em;
+    background-color: #242431;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    -o-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.surveyColRight button:after {
+    position: absolute;
+    -o-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.surveyColRight button:hover {
+    background-color: #383847;
+}
+.surveyColRight button:active {
+    background-color: #383847;
+    top: 2px;
+}
+.surveyColRight button:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    line-height: 3;
+}
+/* Lista produktów*/
+.itemDiv{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    height: auto;
+    width: calc(100% - 20px - 2px);
+    border: 1px solid black;
+    padding: 0 10px 0 10px;
+    margin: 0 0 5px 0;
+}
+.itemColLeft{
+    float: left;
+    flex: 2;
+    height: 100%;
+}
+.itemColMid{
+    float: left;
+    flex: 2;
+    height: 100%;
+}
+.itemColRight{
+    float: left;
+    flex: 1;
+    height: 100%;
+}
+.itemTitle{
+}
+.itemDetails{
+}
+.itemColRight button{
+    margin: 10px 0 10px 0;
+    height: 50px;
+    width: 50px;
+    font-size: 2em;
+    background-color: #242431;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    -o-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+/* Ankieta osobista - obliczanie zapotrzebowania na kcal*/
+.personalSurvey{
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    width: calc(100% - 2px);
+    border: 2px solid black;
+}
+.personalColLeft{
+    padding: 10px;
+    display: flex;
+    flex: 1;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+.personalColMid{
+    padding: 10px;
+    display: flex;
+    flex: 1;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+.personalColRight{
+    padding: 10px;
+    display: flex;
+    flex: 1;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+.personalColMid > label:not(:first-of-type) {
+    margin: 5px 0 0 0;
+}
+/* Custom radio */
+.personalColLeft input[type="radio"] {
+    -webkit-appearance: none;
+    appearance: none;
+}
+.personalColLeft input[type="radio"]{
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    border: 2px solid gray;
+    outline: none;
+}
+.personalColLeft input[type="radio"]::before {
+    display: block;
+    content: " ";
+    width: 10px;
+    height: 10px;
+    border-radius: 6px;
+    background-color: white;
+    font-size: 1.2em;
+    transform: translate(3px, 3px) scale(0);
+    transform-origin: center;
+    transition: all 0.3s ease-in;
+}
+.personalColLeft input[type="radio"]:checked::before {
+    transform: translate(3px, 3px) scale(1);
+    transition: all 0.3s cubic-bezier(0.25, 0.25, 0.56, 2);
+}
+.personalColMid input,
+.personalColMid select{
+    padding-left: 10px;
+    width: 163px;
+    background-color: #242431;
+    border: none;
+    color: white;
+}
+.surveyColMid input::-webkit-inner-spin-button,
+.personalColMid input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}
+.personalDiv{
+    width: 100%;
+    background-color: #242431;
+    color: white;
+    margin: 10px 0 10px 0;
+}
+.personalKcal{
+    font-size: 3em;
+}
+/* Pole na wyniki */
+.personalBtn,
+.showResult,
+.resetBtn{
+    font-size: 2em;
+    background-color: #242431;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    -o-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.dispKcal{
+    margin: 0 0 10px 0;
+    width: 100%;
+    background-color: #242431;
+}
+.productsSetKcal,
+.personalKcal{
+    font-size: 1.5em;
+}
+.verdict{
+    font-size: 1em !important;
+}
+/* Animacje przycisków */
+.personalBtn:after,
+.itemColRight button:after,
+.showResult:after,
+.resetBtn:after{
+    position: absolute;
+    -o-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.personalBtn:hover,
+.itemColRight button:hover,
+.showResult:hover,
+.resetBtn:hover{
+    background-color: #383847;
+}
+.personalBtn:active,
+.itemColRight button:active,
+.showResult:active,
+.resetBtn:active{
+    background-color: #383847;
+    top: 2px;
+}
+.personalBtn:before,
+.itemColRight button:before,
+.showResult:before,
+.resetBtn:before{
+    position: absolute;
+    left: 0;
+    top: 0;
+    line-height: 3;
+}
+/* scrollbar dla Firefox */
+*{
+    scrollbar-width: 8px;
+    scrollbar-color: #242431 white;
+}
+/* scrollbar dla Chrome/Edge/Safari */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #242431;
+}
+::-webkit-scrollbar-thumb {
+    background-color: white;
 }
 /* Tutorial */
 .maskDiv{
@@ -217,336 +537,93 @@ button:focus{
 .closeBtnDownRight:focus{
     outline: none;
 }
-/*  Lewa strona - tytuł, lista produktów*/
-.listHeader{
-    width: calc(100% - 4px);
-    border: 2px solid black;
-    margin: 0 0 10px 0;
-}
-.listHeader h2{
-    padding: 0 10px 0 10px;
-}
-.itemList{
-    padding: 0 0 10px 0;
-    height: calc(100% - 20px);
-    width: 100%;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    overflow: auto;
-}
-.result{
-    display: flex;
-    flex-flow: column;
-    height: 950px;
-    width: 100%;
-    text-align: center;
-}
-/* Wybór produktu*/
-.surveyDiv{
-    display: flex;
-    flex-flow: wrap;
-    align-items: center;
-    height: auto;
-    width: calc(100% - 22px);
-    border: 1px solid black;
-    padding: 0 10px 0 10px;
-    margin: 0 0 5px 0;
-}
-.surveyColLeft{
-    float: left;
-    flex: 2;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-}
-.surveyColMid{
-    display: flex;
-    flex: 2;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-}
-.surveyColRight{
-    padding: 10px 0 10px 0;
-    display: flex;
-    flex: 1;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-}
-.surveyColLeft select{
-    margin: 10px;
-    color: white;
-    width: 150px;
-    background-color: #242431;
-    border: none;
-}
-.surveyColMid input{
-    width: 100px;
-    padding-left: 10px;
-    color: white;
-    background-color: #242431;
-    border: none;
-}
-.surveyColRight button{
-    height: 50px;
-    width: 50px;
-    font-size: 2em;
-    background-color: #242431;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    position: relative;
-    -o-transition: all 0.3s;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    transition: all 0.3s;
-}
-.surveyColRight button:after {
-    position: absolute;
-    -o-transition: all 0.3s;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    transition: all 0.3s;
-}
-.surveyColRight button:hover {
-    background-color: #383847;
-}
-.surveyColRight button:active {
-    background-color: #383847;
-    top: 2px;
-}
-.surveyColRight button:before {
-    position: absolute;
-    left: 0;
-    top: 0;
-    line-height: 3;
-}
-/* Lista produktów*/
-.itemDiv{
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    height: auto;
-    width: calc(100% - 20px - 2px);
-    border: 1px solid black;
-    padding: 0 10px 0 10px;
-    margin: 0 0 5px 0;
-}
-.itemColLeft{
-    float: left;
-    flex: 2;
-    height: 100%;
-}
-.itemColMid{
-    float: left;
-    flex: 2;
-    height: 100%;
-}
-.itemColRight{
-    float: left;
-    flex: 1;
-    height: 100%;
-}
-.itemTitle{
-}
-.itemDetails{
-}
-.itemColRight button{
-    margin: 10px 0 10px 0;
-    height: 50px;
-    width: 50px;
-    font-size: 2em;
-    background-color: #242431;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    position: relative;
-    -o-transition: all 0.3s;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    transition: all 0.3s;
-}
-/* Ankieta osobista - obliczanie zapotrzebowania na kcal*/
-.personalSurvey{
-    display: flex;
-    flex-wrap: wrap;
-    height: auto;
-    width: calc(100% - 4px);
-    border: 2px solid black;
-}
-.personalColLeft{
-    padding: 10px;
-    display: flex;
-    flex: 1;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-}
-.personalColMid{
-    padding: 10px;
-    display: flex;
-    flex: 1;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-}
-.personalColRight{
-    padding: 10px;
-    display: flex;
-    flex: 1;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-}
-.personalColMid > label:not(:first-of-type) {
-    margin: 5px 0 0 0;
-}
-/* Custom radio */
-.personalColLeft input[type="radio"] {
-    -webkit-appearance: none;
-    appearance: none;
-}
-.personalColLeft input[type="radio"]{
-    cursor: pointer;
-    width: 20px;
-    height: 20px;
-    border-radius: 10px;
-    border: 2px solid gray;
-    outline: none;
-}
-.personalColLeft input[type="radio"]::before {
-    display: block;
-    content: " ";
-    width: 10px;
-    height: 10px;
-    border-radius: 6px;
-    background-color: white;
-    font-size: 1.2em;
-    transform: translate(3px, 3px) scale(0);
-    transform-origin: center;
-    transition: all 0.3s ease-in;
-}
-.personalColLeft input[type="radio"]:checked::before {
-    transform: translate(3px, 3px) scale(1);
-    transition: all 0.3s cubic-bezier(0.25, 0.25, 0.56, 2);
-}
-.personalColMid input,
-.personalColMid select{
-    padding-left: 10px;
-    width: 163px;
-    background-color: #242431;
-    border: none;
-    color: white;
-}
-.surveyColMid input::-webkit-inner-spin-button,
-.personalColMid input::-webkit-inner-spin-button{
-    -webkit-appearance: none;
-}
-.personalDiv{
-    width: 100%;
-    background-color: #242431;
-    color: white;
-    margin: 10px 0 10px 0;
-}
-.personalKcal{
-    font-size: 3em;
-}
-/* Pole na wyniki */
-.result{
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.personalBtn,
-.showResult,
-.resetBtn{
-    font-size: 2em;
-    background-color: #242431;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    position: relative;
-    -o-transition: all 0.3s;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    transition: all 0.3s;
-}
-.dispKcal{
-    margin: 0 0 10px 0;
-    width: 100%;
-    background-color: #242431;
-}
-.productsSetKcal,
-.personalKcal{
-    font-size: 1.5em;
-}
-.verdict{
-    font-size: 1em !important;
-}
-/* Animacje przycisków */
-.personalBtn:after,
-.itemColRight button:after,
-.showResult:after,
-.resetBtn:after{
-    position: absolute;
-    -o-transition: all 0.3s;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    transition: all 0.3s;
-}
-.personalBtn:hover,
-.itemColRight button:hover,
-.showResult:hover,
-.resetBtn:hover{
-    background-color: #383847;
-}
-.personalBtn:active,
-.itemColRight button:active,
-.showResult:active,
-.resetBtn:active{
-    background-color: #383847;
-    top: 2px;
-}
-.personalBtn:before,
-.itemColRight button:before,
-.showResult:before,
-.resetBtn:before{
-    position: absolute;
-    left: 0;
-    top: 0;
-    line-height: 3;
-}
-/* scrollbar dla Firefox */
-.itemList{
-    scrollbar-width: thin;
-    scrollbar-color: #242431 white;
-}
-/* scrollbar dla Chrome/Edge/Safari */
-.itemList::-webkit-scrollbar {
-    width: 8px;
-}
-.itemList::-webkit-scrollbar-track {
-    background: #242431;
-}
-.itemList::-webkit-scrollbar-thumb {
-    background-color: white;
-}
 /* media queries dla mobile*/
 @media only screen
     and (min-width: 300px)
-    and (max-width: 813px){
+    and (max-width: 730px){
+    /* Reszta */
+    body{
+        overflow-x: hidden;
+        overflow-y: visible;
+    }
+    .container{
+        min-height: 100vh;
+        flex-direction: column;
+    }
+    .listHeader h2{
+        font-size: 1em;
+    }
+    .leftCol{
+        height: 100%;
+        width: calc(100vw - 20px);
+    }
+    .rightCol{
+        border: none;
+        height: 100%;
+        width: calc(100vw - 22px);
+    }
+    .itemDiv{
+        font-size: 0.8em;
+    }
+    /* Ankiety */
+    .surveyDiv{
+        flex-direction: column;
+    }
+    .personalSurvey{
+        font-size: 0.8em;
+        flex-direction: column;
+    }
+    .surveyColLeft{
+        width: 30vw;
+        padding: 5px 0 0 0;
+    }
+    .surveyColMid{
+        padding: 5px 0 0 0;
+    }
+    .surveyColRight{
+        padding: 5px 0 5px 0;
+    }
+    .surveyColLeft select{
+        margin: 5px 0 0 0;
+        width: 100%;
+        color: white;
+        background-color: #242431;
+        border: none;
+    }
+    .surveyColMid input{
+        margin: 5px 0 0 0;
+        padding: 1px 0 1px 0;
+        width: 30vw;
+        color: white;
+        background-color: #242431;
+        border: none;
+    }
+    /* Buttony */
+    .surveyColRight button{
+        margin: 5px;
+        height: 25px;
+        width: 25px;
+        font-size: 1em;
+        border-radius: 5px;
+    }
+    .itemColRight button{
+        margin: 5px;
+        height: 25px;
+        width: 25px;
+        font-size: 1em;
+        border-radius: 5px;
+    }
+    .personalBtn{
+        font-size: 1em;
+    }
+    .showResult,
+    .resetBtn {
+        font-size: 1em;
+    }
+    .productsSetKcal,
+    .personalKcal{
+        font-size: 1.5em;
+    }
     /* Tutorial */
     .startDiv{
         height: 30vh;
@@ -594,74 +671,5 @@ button:focus{
     .tutorialDivDownRight{
         height: 30vh;
         width: 50vw;
-    }
-    /* Reszta */
-    .listHeader h2{
-        font-size: 1em;
-    }
-    .leftCol{
-        min-width: 158px;
-    }
-    .rightCol{
-        width: calc(100% - 40px);
-    }
-    .itemDiv{
-        font-size: 0.8em;
-    }
-    /* Ankiety */
-    .surveyDiv{
-        flex-direction: column;
-    }
-    .personalSurvey{
-        font-size: 0.8em;
-        flex-direction: column;
-    }
-    .surveyColLeft{
-        padding: 5px 0 0 0;
-    }
-    .surveyColMid{
-        padding: 5px 0 0 0;
-    }
-    .surveyColRight{
-        padding: 5px 0 5px 0;
-    }
-    .surveyColLeft select{
-        margin: 5px;
-        max-width: 115px;
-        color: white;
-        background-color: #242431;
-        border: none;
-    }
-    .surveyColMid input{
-        margin: 5px;
-        color: white;
-        background-color: #242431;
-        border: none;
-    }
-    /* Buttony */
-    .surveyColRight button{
-        margin: 5px;
-        height: 25px;
-        width: 25px;
-        font-size: 1em;
-        border-radius: 5px;
-    }
-    .itemColRight button{
-        margin: 5px;
-        height: 25px;
-        width: 25px;
-        font-size: 1em;
-        border-radius: 5px;
-    }
-    .personalBtn{
-        font-size: 1em;
-    }
-    .showResult,
-    .resetBtn {
-        font-size: 1em;
-    }
-    .productsSetKcal,
-    .personalKcal{
-        font-size: 1.5em;
     }
 }
