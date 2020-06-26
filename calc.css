@@ -10,8 +10,8 @@ body{
 }
 main{
     display: flex;
-    min-height: 100vh;
-    width: 100vw;
+    min-height: 100%;
+    width: 100%;
     background-color: #4D4F77;
     color: white;
     float: left;
@@ -31,8 +31,7 @@ button:focus{
     flex-flow: column;
     padding: 10px;
     height: calc(100vh - 20px);
-    width: calc(40% - 20px);
-    max-width: 400px;
+    width: calc(40vw - 20px);
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -42,8 +41,8 @@ button:focus{
     flex-flow: column;
     padding: 10px;
     border-left: 2px solid black;
-    height: calc(100% - 20px);
-    width: calc(100% - 30px);
+    height: calc(100vh - 20px);
+    width: calc(100vw - 20px);
 }
 /* Tutorial */
 .maskDiv{
@@ -547,8 +546,7 @@ button:focus{
 /* media queries dla mobile*/
 @media only screen
     and (min-width: 300px)
-    and (max-width: 813px)
-    and (orientation: portrait){
+    and (max-width: 813px){
     /* Tutorial */
     .startDiv{
         height: 30vh;
@@ -610,8 +608,13 @@ button:focus{
     .itemDiv{
         font-size: 0.8em;
     }
+    /* Ankiety */
+    .surveyDiv{
+        flex-direction: column;
+    }
     .personalSurvey{
         font-size: 0.8em;
+        flex-direction: column;
     }
     .surveyColLeft{
         padding: 5px 0 0 0;
@@ -635,6 +638,7 @@ button:focus{
         background-color: #242431;
         border: none;
     }
+    /* Buttony */
     .surveyColRight button{
         margin: 5px;
         height: 25px;
