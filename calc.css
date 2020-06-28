@@ -625,6 +625,9 @@ button:focus{
     .personalKcal{
         font-size: 1.5em;
     }
+    .verdict{
+        font-size: 1em !important;
+    }
     /* Tutorial */
     .startDiv{
         height: 30vh;
