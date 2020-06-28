@@ -1,11 +1,13 @@
 //selectory
 const body = document.querySelector('body');
+const leftCol = document.querySelector('.leftCol');
 const surveySelect = document.querySelector('.surveyColLeft select');
 const surveyAccept = document.querySelector('.surveyColRight button');
 const surveyAmount = document.querySelector('.surveyColMid input');
 const resultDiv = document.querySelector('.result');
 const resultBtn = document.querySelector('.showResult');
 const itemList = document.querySelector('.itemList');
+const personalSurvey = document.querySelector('.personalSurvey');
 const personalBtn = document.querySelector('.personalBtn');
 
 //flaga ilości itemów
@@ -147,15 +149,17 @@ const tutorialLeft = () => {
     tutorialMessageLeft.classList.add('tutorialMessageLeft');
     closeBtnLeft.classList.add('closeBtnLeft');
     tutoriaTitleLeft.innerText = "Lista produktów";
-    tutorialMessageLeft.innerText = 'Tutaj możesz wybrać z listy rozwijanej produkty, wpisać wagę w gramach i dodać je do list, by następnie przyciskiem "Oblicz kalorie" obliczyć sumę kalorii.';
+    tutorialMessageLeft.innerText = 'Tutaj możesz wybrać produkty, wpisać wagę w gramach i dodać je do list, a następnie przyciskiem "Oblicz kalorie" obliczyć sumę kalorii.';
     closeBtnLeft.innerText = "Zrozumiałem!";
     tutorialDivLeft.appendChild(tutoriaTitleLeft);
     tutorialDivLeft.appendChild(tutorialMessageLeft);
     tutorialDivLeft.appendChild(closeBtnLeft);
     maskDivLeft.appendChild(tutorialDivLeft);
     body.appendChild(maskDivLeft);
+    leftCol.setAttribute('style', 'border: 3px solid white; padding: 7px;');
     closeBtnLeft.addEventListener('click', e => {
         maskDivLeft.remove();
+        leftCol.removeAttribute('style');
         tutorialUpRight();
     })
 }
@@ -178,8 +182,10 @@ const tutorialUpRight = () => {
     tutorialDivUpRight.appendChild(closeBtnUpRight);
     maskDivUpRight.appendChild(tutorialDivUpRight);
     body.appendChild(maskDivUpRight);
+    personalSurvey.setAttribute('style', 'border: 3px solid white;');
     closeBtnUpRight.addEventListener('click', e => {
         maskDivUpRight.remove();
+        personalSurvey.removeAttribute('style');
         tutorialDownRight();
     })
 }
@@ -202,7 +208,9 @@ const tutorialDownRight = () => {
     tutorialDivDownRight.appendChild(closeBtnDownRight);
     maskDivDownRight.appendChild(tutorialDivDownRight);
     body.appendChild(maskDivDownRight);
+    resultDiv.setAttribute('style', 'border: 3px solid white;');
     closeBtnDownRight.addEventListener('click', e => {
+        resultDiv.removeAttribute('style');
         maskDivDownRight.remove();
     })
 }
