@@ -55,6 +55,7 @@ button:focus{
 }
 .itemList{
     height: calc(100% - 20px);
+    margin-top: 5px;
     width: 100%;
     text-align: center;
     justify-content: center;
@@ -311,10 +312,10 @@ button:focus{
 }
 .productsSetKcal,
 .personalKcal{
-    font-size: 1.5em;
+    font-size: 3em;
 }
 .verdict{
-    font-size: 1em !important;
+    font-size: 2em !important;
 }
 /* Animacje przycisków */
 .personalBtn:after,

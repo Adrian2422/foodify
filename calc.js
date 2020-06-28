@@ -319,6 +319,27 @@ const fancyDisplay = (num, selector, str) => {
         }
     }, 10);
 }
+const setVerdictColor = kcalRatio => {
+    const verdict = document.querySelector('.verdict');
+    let pool = 510;
+    let r = 0;
+    let g = 255;
+    let ratio = kcalRatio;
+    if(kcalRatio > 200){
+        ratio = 200;
+    }
+    if(ratio > 100 || ratio < 100){
+        r += pool * (Math.abs(ratio - 100)/100);
+        if(r >= 255){
+            r = 255;
+            g = pool - 255 - (pool * (Math.abs(ratio - 100)/100));
+        }
+    } else if (ratio === 100){
+        r = 0;
+        g = 255;
+    }
+    verdict.setAttribute('style', `color: rgb(${r}, ${g}, 0);`);
+}
 const createResultHtml = () => {
     if(document.body.contains(document.querySelector('.resetBtn'))){
         (document.querySelector('.resetBtn')).remove();
@@ -351,11 +372,12 @@ const createVerdictHtml = () => {
         const productsSetKcal = document.querySelector('.productsSetKcal').innerText;
         const kcalRatio = ((productsSetKcal.split(': ')[1]) / (personalKcal.split(': ')[1]) * 100).toFixed();
         const kcalDiff = ((personalKcal.split(': ')[1]) - (productsSetKcal.split(': ')[1])).toFixed();
-        if(kcalRatio < 95){
+        if(kcalRatio <= 100){
             verdict.innerText = `Dzienne spożycie mniejsze o ${kcalDiff} od zalecanego`;
-        } else if(kcalRatio > 100){
+        } else if(kcalRatio >= 100){
             verdict.innerText = `Dzienne spożycie większe o ${Math.abs(kcalDiff)} od zalecanego`;
         }
+        setVerdictColor(kcalRatio);
     }
 }
 const removeItem = (btn) => {
