@@ -250,7 +250,7 @@ const iterate = (obj, key) => {
         }
     }
 }
-const sumKcal = (nodes) => {
+const sumKcal = nodes => {
     const dispKcal = document.querySelector('.dispKcal');
     if(dispKcal !== null){
         dispKcal.remove();
@@ -380,7 +380,7 @@ const createVerdictHtml = () => {
         setVerdictColor(kcalRatio);
     }
 }
-const removeItem = (btn) => {
+const removeItem = btn => {
     btn.parentElement.parentElement.remove();
 };
 
