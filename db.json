@@ -1,0 +1,202 @@
+{
+  "dodatki": [
+    {
+      "id": 0,
+      "name": "ryż arborio",
+      "kcal": 130
+    },
+    {
+      "id": 1,
+      "name": "ryż basmanti",
+      "kcal": 130
+    },
+    {
+      "id": 3,
+      "name": "ryż kleisty",
+      "kcal": 97
+    },
+    {
+      "id": 4,
+      "name": "ziemniaki",
+      "kcal": 65
+    },
+    {
+      "id": 5,
+      "name": "kluski leniwe",
+      "kcal": 189
+    },
+    {
+      "id": 6,
+      "name": "kasza gryczana",
+      "kcal": 92
+    },
+    {
+      "id": 7,
+      "name": "kasza bulgur",
+      "kcal": 342
+    },
+    {
+      "id": 8,
+      "name": "kasza jaglana",
+      "kcal": 378
+    }
+  ],
+  "warzywa": [
+    {
+      "id": 100,
+      "name": "kalafior",
+      "kcal": 24.9
+    },
+    {
+      "id": 101,
+      "name": "pomidor",
+      "kcal": 18
+    },
+    {
+      "id": 102,
+      "name": "ogórek",
+      "kcal": 15
+    },
+    {
+      "id": 103,
+      "name": "cukinia",
+      "kcal": 16.7
+    },
+    {
+      "id": 104,
+      "name": "brokuł",
+      "kcal": 31
+    },
+    {
+      "id": 105,
+      "name": "papryka",
+      "kcal": 39.7
+    },
+    {
+      "id": 106,
+      "name": "cebula",
+      "kcal": 39.7
+    },
+    {
+      "id": 107,
+      "name": "fasola szparagowa",
+      "kcal": 31.3
+    }
+  ],
+  "owoce": [
+    {
+      "id": 200,
+      "name": "jabłko",
+      "kcal": 52
+    },
+    {
+      "id": 201,
+      "name": "pomarańcza",
+      "kcal": 49
+    },
+    {
+      "id": 202,
+      "name": "truskawka",
+      "kcal": 32.5
+    },
+    {
+      "id": 203,
+      "name": "gruszka",
+      "kcal": 57.1
+    },
+    {
+      "id": 204,
+      "name": "ananas",
+      "kcal": 50
+    },
+    {
+      "id": 205,
+      "name": "jagoda",
+      "kcal": 57.4
+    },
+    {
+      "id": 206,
+      "name": "wiśnia",
+      "kcal": 50
+    }
+  ],
+  "napoje": [
+    {
+      "id": 300,
+      "name": "woda",
+      "kcal": 0
+    },
+    {
+      "id": 301,
+      "name": "czerwone wino",
+      "kcal": 85
+    },
+    {
+      "id": 302,
+      "name": "białe wino",
+      "kcal": 82
+    },
+    {
+      "id": 303,
+      "name": "piwo",
+      "kcal": 43
+    },
+    {
+      "id": 304,
+      "name": "napój gazowany",
+      "kcal": 42
+    },
+    {
+      "id": 305,
+      "name": "sok jabłkowy",
+      "kcal": 45.6
+    },
+    {
+      "id": 306,
+      "name": "lemoniada",
+      "kcal": 40.2
+    },
+    {
+      "id": 307,
+      "name": "kawa",
+      "kcal": 0.5
+    },
+    {
+      "id": 308,
+      "name": "herbata",
+      "kcal": 1
+    }
+  ],
+  "mięsa": [
+    {
+      "id": 400,
+      "name": "filet z piersi kurczaka",
+      "kcal": 249
+    },
+    {
+      "id": 401,
+      "name": "kotlet schabowy",
+      "kcal": 242.1
+    },
+    {
+      "id": 402,
+      "name": "żeberka",
+      "kcal": 351.1
+    },
+    {
+      "id": 403,
+      "name": "stek wołowy",
+      "kcal": 270.5
+    },
+    {
+      "id": 405,
+      "name": "jagnięcina",
+      "kcal": 294
+    },
+    {
+      "id": 404,
+      "name": "łosoś",
+      "kcal": 208.2
+    }
+  ]
+}
